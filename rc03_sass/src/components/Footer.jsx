@@ -1,8 +1,11 @@
+import footerStyle from "../scss/modules/footer.module.scss";
 
 const Footer = () => {
   return (
-    <footer>
-      <p>Copyright by Clarusway {new Date().getFullYear()}</p>
+    <footer className={footerStyle["footer"]}>
+      <p className={footerStyle["title"]}>
+        Copyright by 0xkiichiro {new Date().getFullYear()}
+      </p>
     </footer>
   );
 };

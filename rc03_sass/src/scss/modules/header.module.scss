@@ -1,0 +1,9 @@
+@import "../abstracts/variable.scss";
+
+header {
+  background-color: $colorDarkPink;
+  padding: 3rem;
+  .title {
+    text-align: center;
+  }
+}

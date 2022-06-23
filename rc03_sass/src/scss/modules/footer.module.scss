@@ -1,0 +1,14 @@
+@import "../abstracts/variable";
+
+.footer {
+  background-color: $colorDarkPink;
+  padding: 1rem;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  .title {
+    color: white;
+    text-align: center;
+  }
+}

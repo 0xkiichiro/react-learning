@@ -1,0 +1,23 @@
+@import "../abstracts/variable";
+
+.btn-container {
+  button {
+    border: none;
+    outline: none;
+    border-radius: 1rem;
+    &:hover {
+      cursor: pointer;
+      opacity: 0.9;
+    }
+  }
+  &--small {
+    background-color: $colorDarkPink;
+    padding: 0.8rem;
+    margin-right: 0.5rem;
+  }
+  &--large {
+    background-color: $colorDarkPurp;
+    padding: 0.8rem 1.6rem;
+    margin-left: 0.5rem;
+  }
+}

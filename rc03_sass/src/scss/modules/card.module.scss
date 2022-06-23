@@ -1,0 +1,33 @@
+@import "../abstracts/variable";
+
+.container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  gap: 2rem;
+  .card {
+    padding: 1.5rem;
+    max-width: 350px;
+    text-align: center;
+    background-color: $colorYellow;
+    border-radius: 1rem;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+      rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+    img {
+      width: 50%;
+    }
+    h1 {
+      color: $colorDarkPurp;
+    }
+    h2 {
+      color: $colorDarkPink;
+    }
+    p {
+      color: $colorLightPurp;
+      margin: 0.5rem;
+    }
+  }
+}
