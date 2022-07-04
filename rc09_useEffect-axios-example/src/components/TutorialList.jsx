@@ -1,8 +1,11 @@
 import { FaEdit } from "react-icons/fa";
 import { AiFillDelete } from "react-icons/ai";
 import EditTutorial from "./EditTutorial";
+import { useState } from "react";
 
 const TutorialList = ({ tutorials, deleteTutorial, editTutorial }) => {
+  const [editItem, setEditItem] = useState("");
+
   return (
     <div className="container mt-4">
       <table className="table table-striped">
@@ -29,7 +32,7 @@ const TutorialList = ({ tutorials, deleteTutorial, editTutorial }) => {
                     size={20}
                     className="me-3 text-warning "
                     style={{ cursor: "pointer" }}
-                    onClick={() => editTutorial(id, "title", "description")}
+                    onClick={() => editTutorial(item)}
                     //! to link modal to this btn
                     //! also imported bootstrap script to index.html
                     data-bs-toggle="modal"
@@ -47,7 +50,7 @@ const TutorialList = ({ tutorials, deleteTutorial, editTutorial }) => {
           })}
         </tbody>
       </table>
-      <EditTutorial />
+      <EditTutorial editTutorial={editTutorial} editItem={editItem} />
     </div>
   );
 };
