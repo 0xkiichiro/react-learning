@@ -8,6 +8,7 @@ import InstructorDetails from "./pages/InstructorDetails";
 import Paths from "./pages/Paths";
 import FullStack from "./pages/FullStack";
 import Aws from "./pages/Aws";
+import PrivateRouter from "./pages/PrivateRouter";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
@@ -19,11 +20,15 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="instructors" element={<Instructors />} />
           <Route path="instructors/:id" element={<InstructorDetails />} />
+          //! nested routing
           <Route path="paths" element={<Paths />}>
+            <Route index element={<FullStack />} />
             <Route path="fullstack" element={<FullStack />} />
             <Route path="aws" element={<Aws />} />
           </Route>
-          <Route path="/contact" element={<Contact />} />
+          <Route path="/contact" element={<PrivateRouter />}>
+            <Route path="" element={<Contact />} />
+          </Route>
           <Route path="*" element={<NotFound />} />
         </Routes>
         <Footer />
