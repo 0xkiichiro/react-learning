@@ -9,7 +9,7 @@ import Paths from "./pages/Paths";
 import FullStack from "./pages/FullStack";
 import Aws from "./pages/Aws";
 import PrivateRouter from "./pages/PrivateRouter";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 function App() {
   return (
@@ -29,6 +29,7 @@ function App() {
           <Route path="/contact" element={<PrivateRouter />}>
             <Route path="" element={<Contact />} />
           </Route>
+          {/* <Route path="*" element={<Navigate to="/" />} /> */}
           <Route path="*" element={<NotFound />} />
         </Routes>
         <Footer />
