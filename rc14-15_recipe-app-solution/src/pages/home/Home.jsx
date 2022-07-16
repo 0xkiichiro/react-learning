@@ -2,7 +2,7 @@ import HomeStyle, { HeaderText, HomeImg, ImgDiv } from "./Home.style";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import Header from "../../components/header/Header";
-import { Card } from "../../components/card/Card.style";
+import Card from "../../components/card/Card";
 import homeSvg from "../../assets/home.svg";
 
 const Home = () => {
@@ -10,9 +10,9 @@ const Home = () => {
   const APP_KEY = process.env.REACT_APP_APP_KEY;
 
   const mealType = ["Breakfast", "Lunch", "Dinner", "Snack", "Teatime"];
-  const [query, setQuery] = useState("");
+  const [query, setQuery] = useState("egg");
   const [selectedMeal, setSelectedMeal] = useState(mealType[0]);
-  const [recipe, setRecipe] = useState();
+  const [recipe, setRecipe] = useState(null);
 
   const url = `https://api.edamam.com/search?q=${query}&app_id=${APP_ID}&app_key=${APP_KEY}&mealType=${selectedMeal}`;
 
@@ -29,10 +29,10 @@ const Home = () => {
     }
   };
 
-  // useEffect(() => {
-  //   getData();
-  // }, []);
-  console.log(recipe);
+  useEffect(() => {
+    getData();
+  }, []);
+
   return (
     <div>
       <Header

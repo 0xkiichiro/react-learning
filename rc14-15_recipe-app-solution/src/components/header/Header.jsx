@@ -28,9 +28,8 @@ const Header = ({ setQuery, setSelectedMeal, mealType, getData }) => {
           id="mealType"
           onChange={(e) => setSelectedMeal(e.target.value)}
         >
-          $
           {mealType.map((item, index) => (
-            <option key={index} value={item}>
+            <option key={index} value={item.toLowerCase()}>
               {item}
             </option>
           ))}
