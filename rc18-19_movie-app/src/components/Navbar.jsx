@@ -1,10 +1,12 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import AuthContext from "../context/AuthContext";
 
 const Navbar = () => {
-  const currUser = {
-    displayName: "0xkiichiro",
-  };
+  const navigate = useNavigate();
+  const { currUser } = useContext(AuthContext);
+
   return (
     <div>
       <nav className="navbar navbar-expand-lg">
@@ -18,7 +20,22 @@ const Navbar = () => {
                 <h5 className="mb-0 text-capitalize">{currUser.displayName}</h5>
                 <button className="ms-2 btn btn-outline-light">Logout</button>
               </>
-            ) : null}
+            ) : (
+              <>
+                <button
+                  className="ms-2 btn btn-outline-light"
+                  onClick={() => navigate("/login")}
+                >
+                  Login
+                </button>
+                <button
+                  className="ms-2 btn btn-outline-light"
+                  onClick={() => navigate("/register")}
+                >
+                  Register
+                </button>
+              </>
+            )}
           </div>
         </div>
       </nav>
