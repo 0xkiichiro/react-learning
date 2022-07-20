@@ -1,5 +1,6 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { AuthContext } from "../context/AuthContext";
 import MovieCard from "./MovieCard";
 
 const API_KEY = process.env.REACT_APP_TMDB_KEY;
@@ -10,6 +11,7 @@ const Main = () => {
   const [movies, setMovies] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [search, setSearch] = useState("");
+  const { currentUser } = useContext(AuthContext);
 
   const getMovies = async (API) => {
     try {
@@ -24,8 +26,14 @@ const Main = () => {
   };
 
   const handleSubmit = (e) => {
-    e.preventDefault();
-    getMovies(SEARCH_API + search);
+    if (search && currentUser) {
+      e.preventDefault();
+      getMovies(SEARCH_API + search);
+    } else if (!currentUser) {
+      alert("Please log in to search movies..");
+    } else {
+      alert("Please enter a movie name");
+    }
   };
 
   useEffect(() => {
