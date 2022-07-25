@@ -16,6 +16,9 @@ const News = () => {
 
   useEffect(() => {
     dispatch(getNews());
+    return () => {
+      dispatch(clearNews());
+    };
   }, []);
 
   return (
