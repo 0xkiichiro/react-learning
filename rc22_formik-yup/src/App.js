@@ -1,6 +1,7 @@
 import { deepPurple, indigo, green } from "@mui/material/colors";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import LoginPage from "./pages/LoginPage";
+import SignupPage from "./pages/SignupPage";
 
 const theme = createTheme({
   palette: {
@@ -14,7 +15,8 @@ function App() {
   return (
     <div>
       <ThemeProvider theme={theme}>
-        <LoginPage />
+        {/* <LoginPage/> */}
+        <SignupPage />
       </ThemeProvider>
     </div>
   );

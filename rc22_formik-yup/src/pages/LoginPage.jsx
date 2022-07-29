@@ -40,9 +40,14 @@ const LoginPage = () => {
                 8,
                 "Passwords with less than 8 characters get decoded by bots in less than 3sec"
               )
-              .max(
-                16,
-                "Don't get overexcited 16 characters is max you can use"
+              .max(16, "Don't get overexcited 16 characters is max you can use")
+              .required()
+              .matches(/\d+/, "Password must contain numbers")
+              .matches(/[a-z]+/, "must include lowercase letters")
+              .matches(/[A-Z]+/, "must include uppercase letters")
+              .matches(
+                /[!,?{}+-><%&$#€._]+/,
+                "password must include at least one speacial letter"
               ),
           })}
           onSubmit={(values, actions) => {
@@ -53,7 +58,7 @@ const LoginPage = () => {
             actions.setSubmitting(false);
           }}
         >
-          {({ values, handleChange, errors, touched }) => (
+          {({ values, handleChange, errors, touched, handleBlur }) => (
             <Form>
               <Box sx={{ display: "flex", flexDirection: "column", gap: 4 }}>
                 <TextField
@@ -64,6 +69,7 @@ const LoginPage = () => {
                   variant="outlined"
                   value={values.fullName}
                   onChange={handleChange}
+                  onBlur={handleBlur}
                   helperText={touched.fullName && errors.fullName}
                   error={touched.fullName && Boolean(errors.fullName)}
                 />
@@ -75,6 +81,7 @@ const LoginPage = () => {
                   variant="outlined"
                   value={values.email}
                   onChange={handleChange}
+                  onBlur={handleBlur}
                   helperText={touched.email && errors.email}
                   error={touched.email && Boolean(errors.email)}
                 />
@@ -86,6 +93,7 @@ const LoginPage = () => {
                   variant="outlined"
                   value={values.password}
                   onChange={handleChange}
+                  onBlur={handleBlur}
                   helperText={touched.password && errors.password}
                   error={touched.password && Boolean(errors.password)}
                 />
