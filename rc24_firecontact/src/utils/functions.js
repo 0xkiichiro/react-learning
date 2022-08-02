@@ -16,7 +16,7 @@ export const addUser = (info) => {
   const userRef = ref(db, "users/");
   const newUserRef = push(userRef);
   set(newUserRef, {
-    userName: info.username,
+    userName: info.userName,
     phoneNumber: info.phoneNumber,
     gender: info.gender,
   });
