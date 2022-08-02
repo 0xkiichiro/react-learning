@@ -24,6 +24,7 @@ const FormComponent = ({ info, setInfo, handleSubmit }) => {
     setInfo({ ...info, [name]: value });
     console.log(info);
   };
+
   return (
     <Grid
       textAlign="center"
@@ -33,14 +34,7 @@ const FormComponent = ({ info, setInfo, handleSubmit }) => {
     >
       <p className="contact-header">
         <div>
-          <a
-            href="https://clarusway.com/"
-            className="design"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <code>{"<Clarusway/> "}</code>
-          </a>
+          <code className="design header">{"<0xkiichiro/> "}</code>
         </div>
         <span className="design header">design</span>
       </p>
@@ -51,7 +45,7 @@ const FormComponent = ({ info, setInfo, handleSubmit }) => {
           <Stack spacing={3} direction="column">
             <TextField
               variant="outlined"
-              name="username"
+              name="userName"
               value={info.userName}
               onChange={handleChange}
               placeholder="Name"
